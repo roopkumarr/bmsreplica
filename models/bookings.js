@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const movies_screenSchema = new mongoose.Schema({
+const bookingSchema = new mongoose.Schema({
     movies_screen_id:{
         type: mongoose.Types.ObjectId,
         ref: 'movies_screened'
@@ -21,4 +21,4 @@ const movies_screenSchema = new mongoose.Schema({
     timestamps:true,
 });
 
-module.exports = mongoose.model('movies_screened', movies_screenSchema);
+module.exports = mongoose.model('bookings', bookingSchema);

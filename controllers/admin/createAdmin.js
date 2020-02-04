@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
         email: req.body.email,
         contact: req.body.contact,
         // password: req.body.password,
-        password: bcrypt.hashSync(password, salt),
+        password: bcrypt.hashSync(req.body.password, salt),
     }).then(user => {
         GATEKEEPER.response(res, 201, user);
     }).catch(err => {

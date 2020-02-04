@@ -23,6 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Mongodb conncetion with the database_url
+mongoose.set('useCreateIndex', true) // to eliminate DeprecationWarning
 mongoose.connect(database_url, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

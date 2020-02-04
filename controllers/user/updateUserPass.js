@@ -7,10 +7,10 @@ const user = require('../../models/users');
 
 router.put('/:id', (req, res) => {
     user.findById(req.params.id)
-        .then(user => {
-            if (bcrypt.compareSync(req.body.old_password, user.password)) {
+        .then(userdetail => {
+            if (bcrypt.compareSync(req.body.old_password, userdetail.password)) {
                 if (req.body.old_password !== req.body.new_password) {
-                    user.findOneAndUpdate({ _id: req.params.id }, { password: bcrypt.hashSync(req.body.new_password, salt) })
+                    user.updateOne({ _id: req.params.id }, { password: bcrypt.hashSync(req.body.new_password, salt) })
                         .then(user => {
                             GATEKEEPER.response(res, 201, user);
                         }).catch(err => {

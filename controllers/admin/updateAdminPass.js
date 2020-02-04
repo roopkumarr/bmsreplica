@@ -10,7 +10,7 @@ router.put('/:id', (req, res) => {
         .then(user => {
             if (bcrypt.compareSync(req.body.old_password, user.password)) {
                 if (req.body.old_password !== req.body.new_password) {
-                    admin.findOneAndUpdate({ _id: req.params.id }, { password: bcrypt.hashSync(req.body.new_password, salt) })
+                    admin.updateOne({ _id: req.params.id }, { password: bcrypt.hashSync(req.body.new_password, salt) })
                         .then(user => {
                             GATEKEEPER.response(res, 201, user);
                         }).catch(err => {

@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    admin.findById(req.params.id)
+    admin.findById(req.params.id,{"password":0})
         .then(user => {
             GATEKEEPER.response(res, 201, user);
         }).catch(err => {

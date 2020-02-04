@@ -1,21 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const GATEKEEPER = require('../../engineering/gatekeeper');
-const movie = require('../../models/movies');
+const theatre = require('../../models/theatres');
 
 router.get('/', (req, res) => {
-    movie.find()
-        .then(moviesDetail => {
-            GATEKEEPER.response(res, 201, moviesDetail);
+    theatre.find()
+        .then(theatres => {
+            GATEKEEPER.response(res, 201, theatres);
         }).catch(err => {
             GATEKEEPER.response(res, 400, JSON.stringify({ 'message': err.message }));
         });
 });
 
 router.get('/:id', (req, res) => {
-    movie.findById(req.params.id)
-        .then(moviesDetail => {
-            GATEKEEPER.response(res, 201, moviesDetail);
+    theatre.findById(req.params.id)
+        .then(theatreDetail => {
+            GATEKEEPER.response(res, 201, theatreDetail);
         }).catch(err => {
             GATEKEEPER.response(res, 400, JSON.stringify({ 'message': err.message }));
         });

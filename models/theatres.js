@@ -25,7 +25,7 @@ const theatreSchema = new mongoose.Schema({
         }
     },
     contact:{
-        type: Date,
+        type: String,
     },
 },{
     timestamps:true,

@@ -4,7 +4,7 @@ const GATEKEEPER = require('../../engineering/gatekeeper');
 const screen = require('../../models/screens');
 
 router.put('/status/:id', (req, res) => {
-    screen.update({_id: req.params._id}, {$set: {status: req.params.status}})
+    screen.update({_id: req.params._id}, {$set: {status: req.body.status}})
     .then(updatedscreen => {
         GATEKEEPER.response(res, 201, updatedscreen);
     }).catch(err => {

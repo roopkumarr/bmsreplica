@@ -13,7 +13,7 @@ router.put('/:id', (req, res) => {
     if (req.body.country) objForUpdate.address.country = req.body.country;
     if (req.body.pin) objForUpdate.address.pin = req.body.pin;
     if (req.body.contact) objForUpdate.contact = req.body.contact;
-    theatre.update({ _id: req.params.id }, objForUpdate)
+    theatre.updateOne({ _id: req.params.id }, objForUpdate)
         .then(theatreDetail => {
             GATEKEEPER.response(res, 201, theatreDetail);
         }).catch(err => {

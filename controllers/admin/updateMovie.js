@@ -10,7 +10,7 @@ router.put('/:id', (req, res) => {
     if (req.body.release_date) objForUpdate.release_date = req.body.release_date;
     if (req.body.description) objForUpdate.description = req.body.description;
     if (req.body.img) objForUpdate.img = req.body.img;
-    movie.update({ _id: req.params.id }, objForUpdate)
+    movie.updateOne({ _id: req.params.id }, objForUpdate)
         .then(updatedDetails => {
             GATEKEEPER.response(res, 201, updatedDetails);
         }).catch(err => {

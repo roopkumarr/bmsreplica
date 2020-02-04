@@ -7,7 +7,7 @@ router.post('/', (req, res) => {
     screen.create({
         theatre_id: req.body.theatre_id,
         name: req.body.name,
-        number_of_steats: req.body.number_of_steats,
+        number_of_seats: req.body.number_of_seats,
         description: req.body.description,
         status: req.body.status
     }).then(screenDetail => {

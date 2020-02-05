@@ -21,6 +21,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/movie',express.static(path.join(__dirname, 'uploads/movies')));//To make this file path open to general users
+
 
 // Mongodb conncetion with the database_url
 mongoose.set('useCreateIndex', true) // to eliminate DeprecationWarning

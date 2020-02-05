@@ -17,6 +17,9 @@ const bookingSchema = new mongoose.Schema({
         enum:['Booked', 'Cancel_process','Canceled'],
         default:'Booked'
     },
+    recepiant_mail:{
+        type: String,
+    }
 },{
     timestamps:true,
 });
